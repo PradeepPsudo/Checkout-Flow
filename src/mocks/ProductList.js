@@ -1,0 +1,367 @@
+export const ProductList = {
+    products: [
+       
+        {
+          
+            lineItems: [
+                {
+                    productDetails: {
+                        name: "Intuit product 2",
+                        description: "This is the Second product from Intuit",
+                        price: 100,
+                        currency: "USD",
+                        isParent: false,
+                        productId: "4433",
+                        depth: 0,
+                        quantity: 1,
+                        parentProductId: null, // Top-level product
+                    },
+                    pricingDetails: {
+                        totalAmount: {
+                            currency: "USD",
+                            value: 54
+                        },
+                        baseAmount:{
+                            currency: "USD",
+                            value: 54
+                        }
+                    },
+                    childItems:[]
+                }
+            ]
+        },
+        {
+           
+            lineItems: [
+                {
+                    productDetails: {
+                        name: "Intuit product 1",
+                        description: "This is the first product from Intuit",
+                        price: 100,
+                        currency: "USD",
+                        isParent: true,
+                        productId: "1234",
+                        depth: 0,
+                        parentProductId: null, // Top-level product
+                        quantity: 1,
+                    },
+                    pricingDetails: {
+                        totalAmount: {
+                            currency: "USD",
+                            value: 127
+                        },
+                        baseAmount:{
+                            currency: "USD",
+                            value: 80
+                        }
+                    },
+                    childItems: [
+                        {
+                            productDetails: {
+                                name: "Intuit product child 1",
+                                description: "This is the first child product from Intuit",
+                                price: 100,
+                                currency: "USD",
+                                isParent: false,
+                                depth: 1,
+                                parentProductId: '1234',
+                                productId: '8090',
+                                quantity: 1,
+                            },
+                            pricingDetails: {
+                                totalAmount: {
+                                    currency: "USD",
+                                    value: 0
+                                },
+                                baseAmount:{
+                                    currency: "USD",
+                                    value: 0
+                                }
+                            },
+                            childItems:[]
+                        },
+                        {
+                            productDetails: {
+                                name: "Intuit product child 2",
+                                description: "This is the second child product from Intuit",
+                                price: 100,
+                                currency: "USD",
+                                isParent: false,
+                                depth: 1,
+                                parentProductId: '1234',
+                                productId: '5060',
+                                quantity: 1,
+                            },
+                            pricingDetails: {
+                                totalAmount: {
+                                    currency: "USD",
+                                    value: 47
+                                },
+                                baseAmount:{
+                                    currency: "USD",
+                                    value: 30
+                                }
+                            },
+                            childItems: [
+                                {
+                                    productDetails: {
+                                        name: "Intuit product grandchild 1",
+                                        description: "This is the first grandchild product from Intuit",
+                                        price: 100,
+                                        currency: "USD",
+                                        isParent: false,
+                                        depth: 2,
+                                        quantity: 1,
+                                        parentProductId: '5060',
+                                        productId: '4050',
+                                    },
+                                    pricingDetails: {
+                                        totalAmount: {
+                                            currency: "USD",
+                                            value: 17
+                                        },
+                                        baseAmount:{
+                                            currency: "USD",
+                                            value: 17
+                                        }
+                                    },
+                                    childItems:[]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+
+            lineItems: [
+                {
+                    productDetails: {
+                        name: "Intuit product 3",
+                        description: "This is the Third product from Intuit",
+                        price: 100,
+                        currency: "USD",
+                        isParent: false,
+                        productId: "7090",
+                        depth: 0,
+                        quantity: 1,
+                        parentProductId: null, // Top-level product
+                    },
+                    pricingDetails: {
+                        totalAmount: {
+                            currency: "USD",
+                            value: 47
+                        },
+                        baseAmount:{
+                            currency: "USD",
+                            value: 47
+                        }
+                    },
+                    childItems:[]
+                }
+            ]
+        }, {
+
+            lineItems: [
+                {
+                    productDetails: {
+                        name: "Recommended Intuit product ",
+                        description: "This is the Recommended Product from Intuit",
+                        price: 100,
+                        currency: "USD",
+                        isParent: false,
+                        productId: "1915",
+                        depth: 0,
+                        quantity: 1,
+                        parentProductId: null, // Top-level product
+                        toBeRecommended:true
+                    },
+                    pricingDetails: {
+                        totalAmount: {
+                            currency: "USD",
+                            value: 47
+                        },
+                        baseAmount:{
+                            currency: "USD",
+                            value: 47
+                        }
+                    },
+                    childItems:[]
+                }
+            ]
+        },
+        {
+
+            lineItems: [
+                {
+                    productDetails: {
+                        name: "Recommended Intuit product 2 ",
+                        description: "This is the Second Recommended Product from Intuit",
+                        price: 100,
+                        currency: "USD",
+                        isParent: false,
+                        productId: "7090",
+                        depth: 0,
+                        quantity: 1,
+                        parentProductId: null, // Top-level product
+                        toBeRecommended:true
+                    },
+                    pricingDetails: {
+                        totalAmount: {
+                            currency: "USD",
+                            value: 50
+                        },
+                        baseAmount:{
+                            currency: "USD",
+                            value: 50
+                        },
+                        discountedPrice:{
+                            currency:"USD",
+                            value:5
+                        }
+                    },
+                    childItems:[]
+                }
+            ]
+        }
+    ]
+}
+// export const ProductList = {
+//     products: [
+//         {
+//             priceDetails: {
+//                 totalAmount: {
+//                     currency: "USD",
+//                     value: 127
+//                 }
+//             },
+//             lineItems: [
+//                 {
+//                     productDetails: {
+//                         name: "Intuit product 1",
+//                         description: "This is the first product from Intuit",
+//                         price: 100,
+//                         currency: "USD",
+//                         isParent: true,
+//                         productId: "1234",
+//                         depth: 0,
+//                         parentProductId: '1234',
+//                         quantity: 1,
+//                     },
+//                     pricingDetails: {
+//                         totalAmount: {
+//                             currency: "USD",
+//                             value: 80
+//                         }
+//                     },
+//                     childItems: [
+//                         {
+//                             productDetails: {
+//                                 name: "Intuit product child 1",
+//                                 description: "This is the first child product from Intuit",
+//                                 price: 100,
+//                                 currency: "USD",
+//                                 isParent: false,
+//                                 depth: 1,
+//                                 parentProductId: '1234',
+//                                 productId: '8090',
+//                                 quantity: 1,
+//                             },
+
+//                             pricingDetails: {
+//                                 totalAmount: {
+//                                     currency: "USD",
+//                                     value: 0
+//                                 }
+//                             }
+//                         },
+//                         {
+//                             productDetails: {
+//                                 name: "Intuit product child 2",
+//                                 description: "This is the second child product from Intuit",
+//                                 price: 100,
+//                                 currency: "USD",
+//                                 isParent: true,
+//                                 depth: 1,
+//                                 parentProductId: '1234',
+//                                 productId: '5060',
+//                                 quantity: 1,
+//                             },
+
+//                             pricingDetails: {
+//                                 totalAmount: {
+//                                     currency: "USD",
+//                                     value: 47
+//                                 }
+//                             },
+//                             childItems: [
+//                                 {
+//                                     productDetails: {
+//                                         name: "Intuit product grandchild 1",
+//                                         description: "This is the first grandchild product from Intuit",
+//                                         price: 100,
+//                                         currency: "USD",
+//                                         isParent: false,
+//                                         depth: 2,
+//                                         quantity: 1,
+//                                         parentProductId: '5060',
+//                                         productId: '4050',
+//                                     },
+
+//                                     pricingDetails: {
+//                                         totalAmount: {
+//                                             currency: "USD",
+//                                             value: 0
+//                                         }
+//                                     }
+//                                 }
+//                             ]
+//                         }
+//                     ]
+//                 }
+//             ]
+//         }, {
+//             lineItems: [{
+//                 productDetails: {
+//                     name: "Intuit product 2",
+//                     description: "This is the Second product from Intuit",
+//                     price: 100,
+//                     currency: "USD",
+//                     isParent: false,
+//                     productId: "4433",
+//                     depth: 0,
+//                     quantity: 1,
+//                     parentProductId: '4433',
+//                 },
+//                 pricingDetails: {
+//                     totalAmount: {
+//                         currency: "USD",
+//                         value: 54
+//                     },
+//                 },
+//             }]
+//         }, {
+//             lineItems: [{
+//                 productDetails: {
+//                     name: "Intuit product 3",
+//                     description: "This is the Third product from Intuit",
+//                     price: 100,
+//                     currency: "USD",
+//                     isParent: false,
+//                     productId: "7090",
+//                     depth: 0,
+//                     quantity: 1,
+//                     parentProductId: '7090',
+//                 },
+//                 pricingDetails: {
+//                     totalAmount: {
+//                         currency: "USD",
+//                         value: 47
+//                     }
+//                 },
+//             },]
+
+//         }
+//     ]
+// }
