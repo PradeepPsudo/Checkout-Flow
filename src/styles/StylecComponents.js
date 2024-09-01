@@ -204,6 +204,7 @@ export const AddressCard = styled.div`
     // border: 1px solid #0077c5;
     // box-sizing: border-box;
     // border-radius: 4px;
+    
   }
   .primaryAddressPosition button{
     position: absolute;
@@ -375,6 +376,20 @@ display: grid;
     grid-auto-flow: column;
     // display:flex;
     // flex-direction:row;
+    .address-box-wrapper{
+      width: 100% ;
+      min-height: 652px;
+      max-height: 652px ;
+      overflow: auto;
+      box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.15) ;
+      @media only screen and (max-width: 600px) {
+        width: 100%;
+        min-height: auto;
+        max-height: auto;
+        overflow: auto;
+        box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.15);
+      }
+    }
     @media only screen and (max-width: 600px) {
       display:flex;
       flex-direction:column;
