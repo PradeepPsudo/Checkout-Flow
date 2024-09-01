@@ -19,7 +19,7 @@ function AddressPage(){
             const existingAddress = addressList?.find((address) => address.id === addressContext?.id);
             !existingAddress && setAddressList([...addressList,addressContext]); // TODO: check if this is the right way to update the addressList
         }
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+         // eslint-disable-next-line 
     },[])
 
 
@@ -48,7 +48,7 @@ function AddressPage(){
             {viewName === ADRRESS_VIEW_TYPE.LIST_VIEW && (
             <>
                   <ListViewAddressWrapper>
-                    <div style={{width:'100%',minHeight:'652px',maxHeight:'652px','overflow':'auto','box-shadow': '0px 1px 13px 0px rgba(0, 0, 0, 0.15)'}}>
+                    <div className="address-box-wrapper">
 
                     {primaryAddress && currentAddressId &&  <DisplayAddressCard address={primaryAddress}/>}
                     {otherAddresses && currentAddressId&& otherAddresses.map((address) => <DisplayAddressCard key={address?.id} address={address} />)}

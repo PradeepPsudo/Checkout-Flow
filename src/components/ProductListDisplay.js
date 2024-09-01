@@ -10,8 +10,7 @@ import { useProductCheckoutContext } from "../Context/ProductsContext";
 
 const ProductListDisplay = ({classifiedProductsList }) => {
     const {standAloneProducts,bundledProducts,recommendedProducts} = classifiedProductsList;
-    const {selectedProducts,setSelectedProducts,setSlectedProductIds, setProductQuantity} = useProductCheckoutContext();
-    console.log('selectedProducts: ', selectedProducts);
+    const {setSelectedProducts,setSlectedProductIds, setProductQuantity} = useProductCheckoutContext();
 
     const handleCheckboxChange = (product) => {
         const {productDetails} = product;

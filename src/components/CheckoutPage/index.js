@@ -21,7 +21,7 @@ function CartPage(){
 
                     <Row justify={"space-around"} align={"center"} className="cart-page-line-item">
                         <Col sm={{span: 6}} xs={{span: 0}}>Product</Col>
-                        <Col span={4}>Cost Price</Col>
+                        <Col span={4}>Price</Col>
                         <Col span={4}>Discount </Col>
                         <Col span={4}>Quantity</Col>
                         <Col span={4}>Subtotal</Col>

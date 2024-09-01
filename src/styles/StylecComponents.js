@@ -7,13 +7,11 @@ width: 69%;
 display: flex;
 flex-direction: column;
 color: rgb(57, 58, 61);
-// padding: 2%;
-//     background-color: rgb(244, 245, 248);
+
     margin-bottom: 20px;
 .MuiAccordionSummary-content{
     display:block !important;
-   // margin-bottom:-20px !important;
-   // margin-top:0px !important;
+
 }
 .MuiButtonBase-root{
     padding:0px !important;
@@ -22,7 +20,7 @@ color: rgb(57, 58, 61);
 
 export const StyledDiv = styled.div``;
 
-export const LineItemDiv=styled.div`
+export const LineItemDiv = styled.div`
 display: flex;
 -webkit-box-pack: justify;
 justify-content: space-between;
@@ -235,6 +233,10 @@ export const AddressBodyContainer = styled.div`
   grid-template-columns: 1fr 9fr 1fr;
   /* grid-auto-rows: 100px; */
   grid-gap: 1rem;
+  @media only screen and (max-width: 600px){
+    grid-template-columns: 0fr 0fr;
+    grid-gap: 0rem;
+  }
 
 `;
 export const CustomerAddressWidgetStyledContainer = styled.div`
@@ -333,7 +335,7 @@ border:none;
 }
 `;
 
-export  const FooterWrapper = styled.div`
+export const FooterWrapper = styled.div`
 position: absolute;
     left: 0;
     bottom: 0;
@@ -373,7 +375,12 @@ display: grid;
     grid-auto-flow: column;
     // display:flex;
     // flex-direction:row;
-`; 
+    @media only screen and (max-width: 600px) {
+      display:flex;
+      flex-direction:column;
+    }
+    
+`;
 
 export const AddressBox = styled.div`
 width:'50%'

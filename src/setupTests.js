@@ -20,5 +20,3 @@ beforeAll(() => {
       })),
     });
   });
-
-  console.log('setupTests.js is executed');
