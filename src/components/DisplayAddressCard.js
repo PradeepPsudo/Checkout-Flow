@@ -53,16 +53,7 @@ useEffect(()=>{
             aria-checked={address?.identification?.id === currentAddressId}
             // aria-labelledby="address"
             aria-describedby="address"
-            data-automation-id={
-              address?.isPrimary
-                ? 'ca-primary-address'
-                : `ca-other-address-${address?.identification?.id}`
-            }
-            data-testid={
-              address?.isPrimary
-                ? 'ca-primary-address'
-                : `ca-other-address-${address?.identification?.id}`
-            }
+
           />
           <DisplayAddressContent {...address} />
           {address.isPrimary && (

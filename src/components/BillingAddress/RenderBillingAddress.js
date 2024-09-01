@@ -170,16 +170,6 @@ export default function RenderBillingAddress(props) {
                             <Input placeholder="Email"></Input>
                         </Form.Item>
                     </Col>
-                    {/* <Col lg={{span: 12}} sm={{span: 12}} xs={{span: 12}}>
-                            <Form.Item
-                                label={"Make Primary:"}
-                                rules={[{required: false, message: ""}]}
-                                type="checkbox"
-                                name="isPrimary"
-                            >
-                                <Input  type="checkbox"></Input>
-                            </Form.Item>
-                        </Col> */}
                 </Row>
                 {
                     viewName === ADRRESS_VIEW_TYPE.SHOW_NEW && <div className={styles.buttonContainer}>

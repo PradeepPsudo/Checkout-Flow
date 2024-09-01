@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "../../styles/orderSummary.css";
 import { useProductCheckoutContext } from '../../Context/ProductsContext';
- import { calculateBillingAmount } from '../../utils.js/productsUtils';
+ import { calculateBillingAmount } from '../../utils/productsUtils';
 import CongratulationsModal from './orderSuccessfull';
 // import OrderConfirmation from './orderSuccessfull';
 

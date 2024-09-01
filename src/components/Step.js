@@ -6,7 +6,7 @@ import  '../styles/ProductList.css';
 import { useProductCheckoutContext } from '../Context/ProductsContext.js';
 import AddressPage from './BillingAddress/index.js';
 import CartPage from './CheckoutPage/index.js';
-import CustomizedDialogs from './PaymentDialog.js/index.js';
+import CustomizedDialogs from './PaymentDialog/index.js';
 import OrderSummary from './OrderSummary/index.js';
 
 function getSteps() {

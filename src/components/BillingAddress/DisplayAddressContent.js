@@ -10,8 +10,6 @@ export default function DisplayAddressContent(address) {
     <AddressBody>
         <div>{address.firstName} {address.lastName}</div>
        <div>{flatNo} {address.buildingName}, {address.addressLine1},  {addressLine2}</div>
-       {/* <div>{address.addressLine1}</div>
-       {addressLine2 && <div>{addressLine2}</div>} */}
        <div> {address.city}, {address.pincode}</div>
       <div>{address.state}, {address.country} </div>
       <div><PhoneIcon fontSize='small'/> {address.mobile}</div>
@@ -20,17 +18,3 @@ export default function DisplayAddressContent(address) {
   );
 }
 
-
-
-// "firstName": "PRADEEP",
-//     "lastName": "Gowda",
-//     "buildingName": "Guddada",
-//     "streetAddress": "MARUTI NAGAR",
-//     "city": "Bangalore Urban",
-//     "state": "KARNATAKA",
-//     "pincode": "560079",
-//     "country": "India",
-//     "mobile": "08073130009",
-//     "email": "PRADEEPP1994@GMAIL.COM",
-//     isPrimary:true,
-//     id:1234

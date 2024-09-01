@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import {  Card, Row, Col } from "antd";
 import { useProductCheckoutContext } from "../../Context/ProductsContext";
 import CartItemCard from "./cartItems";
-import { calculateBillingAmount } from "../../utils.js/productsUtils";
+import { calculateBillingAmount } from "../../utils/productsUtils";
 import BillingCard from "./BiilingCard";
 import DisplayAddressContent from "../BillingAddress/DisplayAddressContent";
 import "../../styles/billingcard.css";

@@ -27,11 +27,7 @@ function CartItemCard(props){
                 <Col sm={{span:6}} xs={{span: 0}}><Text>{title}</Text></Col>
                 <Col sm={{span: 4}} xs={{span: 0}}><Text>{currency}{priceBeforeDiscount}</Text></Col>
                 <Col span={4}><Text>{currency}{discountedAmount}</Text></Col>
-
-                {/* <Col span={4}><Text><img src={item.image} alt={item.name} className={styles.image}></img></Text></Col> */}
-                {/* <Col span={4}><Text delete={discountedPrice?.value}>{currency}{priceBeforeDiscount}  </Text> &nbsp; &nbsp;{discountedPrice?.value && <Text> {currency}{priceAfterDiscount}</Text>}</Col> */}
                 <Col span={4}><InputNumber className={styles.inputNumber} min={1} max={100} value={productQuantity[productId]} onChange={(quantity) => handleProductQuantity(quantity)} /></Col>
-                {/* <Col span={4}><InputNumber className={styles.inputNumber} min={1} max={100} value={productQuantity[id]} /></Col> */}
 
                 <Col span={4}><Text>{currency}{priceAfterDiscount}</Text></Col>
             </Row>

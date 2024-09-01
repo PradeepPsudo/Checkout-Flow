@@ -19,7 +19,7 @@ export default function LineItems(props){
           
             <LineItemTextContent>
             { (showCheckbox && depth === 0) &&<StyledDiv>
-                <StyledCheckbox type="checkbox" checked={selectedProductIds.includes(productDetails.productId)} onClick={handleCheckbox}></StyledCheckbox>
+                <StyledCheckbox type="checkbox" checked={selectedProductIds?.includes(productDetails.productId)} onClick={handleCheckbox}></StyledCheckbox>
                 </StyledDiv>
             }
                 <LineItemBody>

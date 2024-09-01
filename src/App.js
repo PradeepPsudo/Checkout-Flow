@@ -2,7 +2,7 @@ import './App.css';
 import { ProductsCheckoutContextProvider } from './Context/ProductsContext';
 import Footer from './components/Common/Footer';
 import Header from './components/Common/Header';
-import { getClassifiedProducts } from './utils.js/productsUtils';
+import { getClassifiedProducts } from './utils/productsUtils';
 import { useGetProductList } from './common/customhooks/useGetProducts';
 import { API_ENDPOINTS } from './constants/apiConstants';
 import ClipLoader from 'react-spinners/ClipLoader'; 
