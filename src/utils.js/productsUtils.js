@@ -1,3 +1,4 @@
+import { CURRENCY_TYPE } from "../constants";
 
 
 export const getClassifiedProducts = (ProductList)=>{
@@ -40,4 +41,28 @@ export const getClassifiedProducts = (ProductList)=>{
         recommendedProducts
     }
    
+}
+
+
+
+export const calculateBillingAmount = (products,productQuantity)=>{
+    const totalAmount = products.reduce((acc,product)=>{
+        const {pricingDetails,productDetails} = product;
+        const {productId} = productDetails;
+        const {totalAmount} = pricingDetails;
+        return acc + (totalAmount.value * productQuantity[productId])
+    },0)
+
+    const discountedPrice = products.reduce((acc,product)=>{
+        const {pricingDetails,productDetails} = product;
+        const {productId} = productDetails;
+        const {discountedPrice} = pricingDetails;
+        return acc + (discountedPrice?.value ?  discountedPrice?.value* productQuantity[productId]:0)
+    },0)
+    const currency = products?.[0].pricingDetails?.totalAmount?.currency || CURRENCY_TYPE.USD;
+    return{
+        totalAmount,
+        totalDiscount:discountedPrice,
+        currency
+    }
 }

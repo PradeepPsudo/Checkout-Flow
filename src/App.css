@@ -37,4 +37,17 @@
   }
 }
 
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
 
+.MuiAccordionSummary-root{
+  display: flex !important;
+}
+
+/* .MuiButtonBase-root{
+  position: absolute !important;
+} */

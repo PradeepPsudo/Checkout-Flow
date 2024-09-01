@@ -48,7 +48,7 @@
 }
 
 .MuiStepper-root{
-    padding: 16px;
+    padding: 15px !important;
   background-color: rgb(244, 245, 248);
   }
 
@@ -57,7 +57,31 @@
      flex-direction: column;
      /* margin-bottom: 20px; */
   }
-  .to-be-removed{
+  .stepper-wrapper{
     display:flex;
     justify-content: center;
+    height: 700px;
+    overflow: auto;
   }
+
+  .MuiDrawer-paper {
+    width: 25% !important;
+    }
+    
+    @media (max-width: 1200px) {
+        .MuiDrawer-paper {
+     width: 80% !important;
+     }
+    }
+.step-footer-botton{
+    margin-bottom: 10px;
+}
+
+html,body{
+    height: 100%;
+    margin:0;
+}
+
+#root{
+    min-height:100vh;
+}

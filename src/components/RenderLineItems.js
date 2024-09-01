@@ -1,13 +1,14 @@
 import React from 'react';
 import { LineItemBody, LineItemDescription, LineItemDescriptionContent, LineItemDiv, LineItemPriceQuantity, LineItemRightSection, LineItemTextContent, LineItemTitle, PriceDiv, PriceInfo, StyledCheckbox, StyledDiv, StyledSpan } from '../styles/StylecComponents';
-import { CURRENCY_TYPE, SYMBOLS } from '../constants';
+import { CURRENCY_TYPE } from '../constants';
+import { useProductCheckoutContext } from '../Context/ProductsContext';
 
 export default function LineItems(props){
     const {handleCheckboxChange, showCheckbox=true,isFromAccordion=false, product} = props;
     const {productDetails,pricingDetails} = product
     const {name,description,depth} = productDetails;
     let discount = pricingDetails?.discountedPrice?.value || 0; // Default value is 0 if discountedPrice is not present
-
+    const {selectedProductIds} = useProductCheckoutContext();
     const {currency,value} = isFromAccordion ? pricingDetails.totalAmount : pricingDetails.baseAmount;
     const handleCheckbox = ()=>{
         handleCheckboxChange(product)
@@ -18,7 +19,7 @@ export default function LineItems(props){
           
             <LineItemTextContent>
             { (showCheckbox && depth == 0) &&<StyledDiv>
-                <StyledCheckbox type="checkbox" onClick={handleCheckbox}></StyledCheckbox>
+                <StyledCheckbox type="checkbox" checked={selectedProductIds.includes(productDetails.productId)} onClick={handleCheckbox}></StyledCheckbox>
                 </StyledDiv>
             }
                 <LineItemBody>

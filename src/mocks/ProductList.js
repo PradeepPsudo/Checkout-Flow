@@ -24,6 +24,10 @@ export const ProductList = {
                         baseAmount:{
                             currency: "USD",
                             value: 54
+                        },
+                        discountedPrice:{
+                            currency:"USD",
+                            value:5
                         }
                     },
                     childItems:[]
@@ -201,7 +205,7 @@ export const ProductList = {
                         price: 100,
                         currency: "USD",
                         isParent: false,
-                        productId: "7090",
+                        productId: "7010",
                         depth: 0,
                         quantity: 1,
                         parentProductId: null, // Top-level product

@@ -1,0 +1,82 @@
+.breadcrumb{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.priceCard{
+    width: 40%;
+    float: right;
+}
+
+.title{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.priceSection{
+    padding: 16px 0px;
+    border-bottom: 1px solid var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.priceSection span:last-child{
+    float: right;
+}
+
+.priceCard button{
+    margin: auto;
+    display: block;
+    height: 40px;
+    padding: 0px 70px;
+}
+
+@media only screen and (max-width: 400px){
+    .priceCard{
+        float: none;
+        width: 100%;
+    }
+}
+.billingCard{
+    margin-bottom: 5px;
+    padding: 0px !important;
+    text-align: left;
+   
+}
+
+.image{
+    height: 54px;
+    width: 54px;
+}
+
+.priceCard{
+    width: 40%;
+    float: right;
+}
+
+.title{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 400px){
+    .inputNumber{
+        width: 50px;
+    }
+}
+
+.priceSection{
+    border-bottom: 1px solid var(--secondary-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 16px 0;
+}
+
+.card{
+    text-align: left;
+}

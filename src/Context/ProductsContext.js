@@ -1,44 +1,52 @@
 import React, { useState } from 'react';
 
-// import { DEFAULT_COUNTRY } from '../../../common/constants/AddressConfig';
-const DEFAULT_COUNTRY="INDIA";
 
 // The Context
 const ProductCheckoutContext = React.createContext({});
+const initialAddress = {
+    "firstName": "PRADEEP",
+    "lastName": "Gowda",
+    "buildingName": "Guddada",
+    "addressLine1": "MARUTI NAGAR",
+    "addressLine2": "Kamakshipalya",
+    "city": "Bangalore Urban",
+    "state": "KARNATAKA",
+    "pincode": "560079",
+    "country": "India",
+    "mobile": "08073130009",
+    "email": "PRADEEPP1994@GMAIL.COM",
+    "isPrimary":true,
+    "flatNo":123,
+    id:1234
+}
 
-// Address Provider
+
+
+
+// Context Provider
 const ProductsCheckoutContextProvider = ({ children }) => {
-  const [addressContext, setAddressContext] = useState({
-    identification: null,
-    city: null,
-    state: null,
-    addressLine1: null,
-    addressLine2: null,
-    country: DEFAULT_COUNTRY,
-    postalCode: null,
-    isPrimary: null,
-  });
+  const [addressContext, setAddressContext] = useState(initialAddress)
 
   const [selectedProducts, setSelectedProducts]= useState([]);
-//   const [isSaveButtonEnabled, setSaveButtonEnabled] = useState(false);
-//   const [isUseButtonEnabled, setUseButtonEnabled] = useState(false);
-//   const [currentAddressId, setCurrentAddressId] = useState('');
-//   const [updateCreateAddressId, setUpdateCreateAddressId] = useState('');
+  const [currentAddressId,setCurrentAddressId]= useState('');
+  const [selectedProductIds, setSlectedProductIds] = useState([]);
   const [addressList, setAddressList] = useState([]);
+  const [productQuantity, setProductQuantity] = useState({});
+  const [paymentMethod,setPaymentMethod] = useState({});
   // Context values passed to consumer
   const value = {
     addressContext,
     setAddressContext,
     selectedProducts,
     setSelectedProducts,
-    // isSaveButtonEnabled,
-    // setSaveButtonEnabled,
-    // isUseButtonEnabled,
-    // setUseButtonEnabled,
-    // currentAddressId,
-    // setCurrentAddressId,
-    // updateCreateAddressId,
-    // setUpdateCreateAddressId,
+    currentAddressId,
+    setCurrentAddressId,
+    selectedProductIds,
+    setSlectedProductIds,
+    setPaymentMethod,
+    paymentMethod,
+    productQuantity,
+    setProductQuantity,
     addressList,
     setAddressList,
   };

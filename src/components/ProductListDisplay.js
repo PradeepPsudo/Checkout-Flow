@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import  '../styles/ProductList.css';
 import { ProductClassificationHeader, ProductClassificationName, ProductListWrapper, ProductWrapper, StyledDiv } from "../styles/StylecComponents";
 import LineItems from "./RenderLineItems";
@@ -8,10 +8,9 @@ import { PRODUCT_CLASSIFICATION } from "../constants";
 import { useProductCheckoutContext } from "../Context/ProductsContext";
 
 
-const ProductListDisplay = ({ products,classifiedProductsList }) => {
-    // const [selectedProducts, setSelectedProducts] = useState([]);
+const ProductListDisplay = ({classifiedProductsList }) => {
     const {standAloneProducts,bundledProducts,recommendedProducts} = classifiedProductsList;
-    const {selectedProducts,setSelectedProducts} = useProductCheckoutContext();
+    const {selectedProducts,setSelectedProducts,setSlectedProductIds, setProductQuantity} = useProductCheckoutContext();
     console.log('selectedProducts: ', selectedProducts);
 
     const handleCheckboxChange = (product) => {
@@ -22,35 +21,24 @@ const ProductListDisplay = ({ products,classifiedProductsList }) => {
             const isProductPreviouslySelected = previousSelectedProducts?.find((prevProduct)=>prevProduct?.productDetails?.productId === productId);
             return isProductPreviouslySelected ?  previousSelectedProducts.filter((prevProduct) => prevProduct?.productDetails?.productId !== productId) : [...previousSelectedProducts, product]
         })
-        
-        // setSelectedProducts((prevSelectedProducts) =>
-        //     prevSelectedProducts.includes(productId)
-        //         ? prevSelectedProducts.filter(id => id !== productId)
-        //         : [...prevSelectedProducts, productId]
-        // );
+
+        setSlectedProductIds( (previousSelectedProductIds)=>{
+            const isProductPreviouslySelected = previousSelectedProductIds?.find((prevProductId)=>prevProductId === productId);
+            return isProductPreviouslySelected ?  previousSelectedProductIds.filter((prevProductId) => prevProductId !== productId) : [...previousSelectedProductIds, productId]
+        });
+        setProductQuantity((prevProductQuantity)=>{
+            const isQuantityPresent = prevProductQuantity[productId];
+            return isQuantityPresent? delete(prevProductQuantity[productId]) : {...prevProductQuantity,[productId]:1}
+        })
     };
 
     const createAccordion = (product)=>{
-        const { productDetails, pricingDetails, childItems } = product;
+        const {  childItems } = product;
             return(
-            //     <Accordion className="accordion-class">
-            //     <AccordionSummary style={{display:"block"}}  expandIcon={<ExpandMoreIcon />}>
-            //      <LineItems productDetails={productDetails} pricingDetails={pricingDetails} handleCheckboxChange={handleCheckboxChange}/>
-            //     </AccordionSummary>
-            //     <AccordionDetails>
-            //     <LineItems productDetails={productDetails} pricingDetails={pricingDetails} handleCheckboxChange={handleCheckboxChange} showCheckbox={false}/>
-
-            //         {childItems && childItems.length > 0 && (
-            //          <div>
-            //             {childItems.map((childProduct) => renderProduct(childProduct))}
-            //        </div>
-            //     )}
-            //     </AccordionDetails>
-            //   </Accordion>
+          
             <Accordion className="accordion-class">
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                {/* <AccordionSummary> */}
-                    {/* <LineItems productDetails={productDetails} pricingDetails={pricingDetails.totalAmount} handleCheckboxChange={handleCheckboxChange}/> */}
+
                     <LineItems product={product} handleCheckboxChange={handleCheckboxChange} isFromAccordion={true}/>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -58,15 +46,13 @@ const ProductListDisplay = ({ products,classifiedProductsList }) => {
                     {childItems && childItems.length > 0 && (
                         <ul>
                             <li>
-                            {/* <LineItems productDetails={productDetails} pricingDetails={pricingDetails.baseAmount} handleCheckboxChange={handleCheckboxChange} showCheckbox={false}/> */}
                             <LineItems product={product}  handleCheckboxChange={handleCheckboxChange} showCheckbox={false}/>
 
                             </li>
                             {
                                 childItems.map((childProduct)=>(
-                                    <li>
+                                    <li key={childProduct?.name}>
                                         {childProduct?.childItems && childProduct?.childItems?.length > 0 && createAccordion(childProduct)}
-                                        {/* { childProduct?.childItems?.length ===0 && <LineItems productDetails={childProduct?.productDetails} pricingDetails={childProduct?.pricingDetails?.baseAmount} handleCheckboxChange={handleCheckboxChange} showCheckbox={false}/>} */}
                                         { childProduct?.childItems?.length ===0 && <LineItems product={childProduct}  handleCheckboxChange={handleCheckboxChange} showCheckbox={false}/>}
 
                                     </li>
@@ -75,32 +61,18 @@ const ProductListDisplay = ({ products,classifiedProductsList }) => {
                         </ul>
                     )}
                    
-                  
-                    {/* {childItems && childItems.length > 0 && (
-                            }
-                        </ul>
-                    )}
-                   
-                  
-                    {/* {childItems && childItems.length > 0 && (
-                        <div>
-                            {childItems.map((childProduct) => renderProduct(childProduct))}
-                        </div>
-                    )} */}
                 </AccordionDetails>
             </Accordion>
             )
     }
 
     const renderProduct = (product) => {
-        const { productDetails, pricingDetails, childItems } = product;
-        const isSelected = selectedProducts.includes(productDetails.productId);
+        const {  childItems } = product;
 
         return (
             <>
              {childItems && childItems.length > 0 && createAccordion(product)}
 
-             {/* {childItems?.length=== 0 && <LineItems productDetails={productDetails} pricingDetails={pricingDetails?.totalAmount} handleCheckboxChange={handleCheckboxChange}/>} */}
              {childItems?.length=== 0 && <LineItems product={product} handleCheckboxChange={handleCheckboxChange}/>}
 
             </>
@@ -109,14 +81,6 @@ const ProductListDisplay = ({ products,classifiedProductsList }) => {
 
     return (
         <ProductListWrapper >
-            {/* <h1>Product List</h1> */}
-            {/* <ProductWrapper>
-                {products.map((product) => (
-                    <StyledDiv key={product.lineItems[0].productDetails.productId}>
-                        {product.lineItems.map((item) => renderProduct(item))}
-                    </StyledDiv>
-                ))}
-            </ProductWrapper> */}
             <ProductClassificationHeader>
                 <ProductClassificationName>{PRODUCT_CLASSIFICATION.STAND_ALONE_PRODUCTS}</ProductClassificationName>
             </ProductClassificationHeader>
@@ -124,7 +88,6 @@ const ProductListDisplay = ({ products,classifiedProductsList }) => {
             <ProductWrapper>
                 {standAloneProducts.map((product) => (
                     <StyledDiv key={product.productDetails.productId}>
-                        {/* {product.lineItems.map((item) => renderProduct(item))} */}
                         <LineItems product={product}  handleCheckboxChange={handleCheckboxChange}/>
                     </StyledDiv>
                 ))}
