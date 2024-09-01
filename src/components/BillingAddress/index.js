@@ -17,7 +17,7 @@ function AddressPage(){
     useEffect(()=>{
         if(addressContext?.id){
             setCurrentAddressId(addressContext?.id);
-            const existingAddress = addressList?.find((address) => address.id == addressContext?.id);
+            const existingAddress = addressList?.find((address) => address.id === addressContext?.id);
             !existingAddress && setAddressList([...addressList,addressContext]); // TODO: check if this is the right way to update the addressList
         }
     },[])

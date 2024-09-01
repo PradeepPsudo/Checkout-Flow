@@ -13,7 +13,7 @@ const CreditCardForm = (props) => {
   const { handleChange, handleFocus, handleSubmit, values, errors } = useForm();
   useEffect(()=>{
 
-        const isEmpty = Object.keys(values).find((key)=>values[key] == "");
+        const isEmpty = Object.keys(values).find((key)=>values[key] === "");
         setDisabledPlaceOrder(isEmpty);
         if(!isEmpty){
           onDone && onDone(values);

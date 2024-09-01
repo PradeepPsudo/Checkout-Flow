@@ -88,7 +88,7 @@ export default function StepFlow(props) {
 const {ProductList,classifiedProductsList} = props;
   const handleNext = () => {
     // setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    if(activeStep == 2 && !launchDialog){
+    if(activeStep === 2 && !launchDialog){
       setLaunchDialog(true);
     }else{
      setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -120,7 +120,7 @@ const {ProductList,classifiedProductsList} = props;
         return 'Unknown stepIndex';
     }
   }
-  const buttonText = activeStep==2 ? 'Proceed to checkout': 'Next';
+  const buttonText = activeStep===2 ? 'Proceed to checkout': 'Next';
   return (
     <ThemeProvider theme={theme}>
       <div>
