@@ -8,7 +8,6 @@ import {  ListViewAddressWrapper } from "../../styles/StylecComponents";
 import DisplayAddressCard from "../DisplayAddressCard";
 
 function AddressPage(){
-    //const { firstName, lastName } = form || {};
     const [viewName,setViewName] = useState(ADRRESS_VIEW_TYPE.LIST_VIEW);
     const { addressContext,addressList,setCurrentAddressId,setAddressList,currentAddressId} = useProductCheckoutContext();
  
@@ -20,6 +19,7 @@ function AddressPage(){
             const existingAddress = addressList?.find((address) => address.id === addressContext?.id);
             !existingAddress && setAddressList([...addressList,addressContext]); // TODO: check if this is the right way to update the addressList
         }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
 
