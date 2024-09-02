@@ -51,3 +51,25 @@
 /* .MuiButtonBase-root{
   position: absolute !important;
 } */
+
+.footer-class{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(57, 58, 61);
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 400px){
+  .footer-class{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(57, 58, 61);
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 0px;
+  }
+}

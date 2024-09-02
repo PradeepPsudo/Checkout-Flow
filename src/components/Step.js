@@ -10,7 +10,7 @@ import CustomizedDialogs from './PaymentDialog/index.js';
 import OrderSummary from './OrderSummary/index.js';
 
 function getSteps() {
-  return ['Select Products', 'Provide Address', 'Place order'];
+  return ['Select Products', 'Provide Billing Address', 'Place order'];
 }
 
 const order = {

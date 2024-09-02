@@ -39,10 +39,12 @@ export default function LineItems(props){
                                 
                                 <StyledSpan style={{'text-decoration': discount?'line-through':'none'}}>{CURRENCY_TYPE[currency]}</StyledSpan>
                                 <StyledSpan style={{'text-decoration': discount?'line-through':'none'}}>&nbsp;{value}</StyledSpan>
-                                {discount && <>
+                                {discount > 0 && <>
                                     &nbsp;   &nbsp;  &nbsp;
                                     <StyledSpan>{CURRENCY_TYPE[currency]}</StyledSpan>
-                                <StyledSpan>&nbsp;{value-discount}</StyledSpan></> }
+                                     <StyledSpan>&nbsp;{value-discount}</StyledSpan>
+                                </> 
+                                }
                             </StyledSpan>
                         </PriceInfo>
                     </PriceDiv>
