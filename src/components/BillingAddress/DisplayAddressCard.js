@@ -31,10 +31,6 @@ useEffect(()=>{
 
   const handleDeleteAddress = ()=>{
     setOpenDialog(true);
-    // const fetchPrimaryAddress = addressList?.find((address)=> address.isPrimary);
-    // fetchPrimaryAddress &&  setAddressContext(fetchPrimaryAddress);
-    // fetchPrimaryAddress && setCurrentAddressId(fetchPrimaryAddress.id);
-    //  setAddressList(addressList.filter((address)=> address.id !== id));
   }
   const deleteAddress = ()=>{
     const fetchPrimaryAddress = addressList?.find((address)=> address.isPrimary);

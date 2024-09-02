@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function AddressAlertDialog(props) {
-  const {deleteAddress,setOpenDialog} = props;
+  const {deleteAddress,setOpenDialog,open} = props;
   const handleClose = () => {
     setOpenDialog(false);
   };
