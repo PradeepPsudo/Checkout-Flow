@@ -3,13 +3,11 @@ import "../../styles/orderSummary.css";
 import { useProductCheckoutContext } from '../../Context/ProductsContext';
  import { calculateBillingAmount } from '../../utils/productsUtils';
 import CongratulationsModal from './orderSuccessfull';
-// import OrderConfirmation from './orderSuccessfull';
 
 
 
 const OrderSummary = () => {
     const {selectedProducts,paymentMethod,addressContext,productQuantity} = useProductCheckoutContext();
-    // const {addressLine1,addressLine2,city,state,pincode,country} = addressContext;
     const {city,state,country} = addressContext;
     const [open,setOpen] = useState(true);
     const address = ` ${city} 

@@ -374,8 +374,7 @@ position: absolute;
 export const ListViewAddressWrapper = styled.div`
 display: grid;
     grid-auto-flow: column;
-    // display:flex;
-    // flex-direction:row;
+  
     .address-box-wrapper{
       width: 100% ;
       min-height: 652px;

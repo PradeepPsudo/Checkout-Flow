@@ -5,7 +5,7 @@ import { useProductCheckoutContext } from "../../Context/ProductsContext";
 import {  ADRRESS_VIEW_TYPE } from "../../constants";
 import RenderBillingAddress from "./RenderBillingAddress";
 import {  ListViewAddressWrapper } from "../../styles/StylecComponents";
-import DisplayAddressCard from "../DisplayAddressCard";
+import DisplayAddressCard from "./DisplayAddressCard";
 
 function AddressPage(){
     const [viewName,setViewName] = useState(ADRRESS_VIEW_TYPE.LIST_VIEW);

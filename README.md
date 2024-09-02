@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 
+This project is a simple checkout website built with React and ContextAPI. It allows users to browse products, add them to their cart, and checkout with a credit card. It also includes a custom hook for fetching product data from an API.
 ## Available Scripts
 
 In the project directory, you can run:

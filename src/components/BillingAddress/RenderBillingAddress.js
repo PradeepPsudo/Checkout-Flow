@@ -48,7 +48,6 @@ export default function RenderBillingAddress(props) {
     });
     return (
         <Card className={styles.addressCard}>
-            {/* <div className={styles.heading}>Add Billing Address</div> */}
             <Form form={form} layout="vertical" onFinish={onFinish} initialValues={(viewName === ADRRESS_VIEW_TYPE.LIST_VIEW) ? addressContext : {}}>
                 <Row gutter={{
                     sm: 4,

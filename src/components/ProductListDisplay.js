@@ -110,7 +110,6 @@ const ProductListDisplay = ({classifiedProductsList }) => {
             <ProductWrapper>
                 {recommendedProducts.map((product) => (
                     <StyledDiv key={product.productDetails.productId}>
-                        {/* {product.map((item) => renderProduct(item))} */}
                         {renderProduct(product)}
                     </StyledDiv>
                 ))}
