@@ -41,7 +41,7 @@ function AddressPage(){
                     title: <div  onClick={goToSelectAddress}>Select Address</div>,
                 },
                 {
-                    title: <div onClick={goToNewAddress}>New Address</div>,
+                    title: <div onClick={goToNewAddress}>Add New Address</div>,
                 },
                 ]}
             />

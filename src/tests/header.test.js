@@ -14,9 +14,9 @@ describe('Header Component', () => {
     render(<Header />);
 
     const appBarElement = screen.getByRole('banner');
-    expect(appBarElement).toHaveStyle('background-color: #e0f7fa');
+    expect(appBarElement).toHaveStyle('background-color: rgb(57, 58, 61)');
 
     const boxElement = screen.getByText('Complete Your Checkout Adventure').closest('div');
-    expect(boxElement).toHaveStyle('color: #00796b');
+    expect(boxElement).toHaveStyle('color: white');
   });
 });

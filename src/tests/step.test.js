@@ -52,7 +52,7 @@ describe('StepFlow Component', () => {
 
     fireEvent.click(screen.getByText('Next'));
 
-    expect(screen.getByText('Provide Address')).toBeInTheDocument();
+    expect(screen.getByText('Provide Billing Address')).toBeInTheDocument();
     expect(screen.getByText('Next')).toBeInTheDocument();
   });
 

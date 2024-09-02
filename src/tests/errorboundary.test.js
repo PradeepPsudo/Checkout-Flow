@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ErrorBoundary from '../ErrorBoundary/index';
+import ErrorBoundary from "../components/ErrorBoundary/index";
 
 describe('ErrorBoundary Component', () => {
   test('renders children when no error is caught', () => {

@@ -37,22 +37,8 @@ describe('ProductsCheckoutContextProvider', () => {
     );
 
     expect(screen.getByTestId('addressContext')).toHaveTextContent(
-      JSON.stringify({
-        "firstName": "PRADEEP",
-        "lastName": "Gowda",
-        "buildingName": "Guddada",
-        "addressLine1": "MARUTI NAGAR",
-        "addressLine2": "Kamakshipalya",
-        "city": "Bangalore Urban",
-        "state": "KARNATAKA",
-        "pincode": "560079",
-        "country": "India",
-        "mobile": "08073130009",
-        "email": "PRADEEPP1994@GMAIL.COM",
-        "isPrimary": true,
-        "flatNo": 123,
-        id: 1234
-      })
+      JSON.stringify({"firstName":"Pradeep","lastName":"P","buildingName":"Lahari Enclave","addressLine1":"Maruthi Nagar","addressLine2":"Kamakshipalya","city":"Bengaluru","state":"Karnataka","pincode":"560079","country":"India","mobile":"8073130009","email":"pradeepp1994@gmail.com","isPrimary":true,"flatNo":123,"id":1234}
+      )
     );
     expect(screen.getByTestId('selectedProducts')).toHaveTextContent('[]');
     expect(screen.getByTestId('currentAddressId')).toHaveTextContent('');

@@ -17,8 +17,8 @@ describe('Footer Component', () => {
     render(<Footer />);
 
     const boxElement = screen.getByText(/My React App/i).closest('div');
-    expect(boxElement).toHaveStyle('background-color: #e0f7fa');
-    expect(boxElement).toHaveStyle('color: #00796b');
+    expect(boxElement).toHaveStyle('background-color: rgb(57, 58, 61)');
+    expect(boxElement).toHaveStyle('color: white');
     expect(boxElement).toHaveStyle('padding-top: 16px'); // py: 2 translates to 16px
     expect(boxElement).toHaveStyle('padding-bottom: 16px'); // py: 2 translates to 16px
     expect(boxElement).toHaveStyle('margin-top: auto');
