@@ -23,7 +23,7 @@ export const useGetProductList = (url,options={}) =>{
 return { data:{products:data}, isLoading, error };
 }
 
-export const addToCart = ()=>{
+export const useAddToCart = ()=>{
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -44,7 +44,7 @@ export const addToCart = ()=>{
     return {addProductToCart, data:{products:data}, isLoading, error };
 }
 
-export const updateCheckoutAddressDetails = ()=>{
+export const useUpdateCheckoutAddressDetails = ()=>{
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -86,7 +86,7 @@ export const updateCheckoutAddressDetails = ()=>{
 //     return { data:{products:data}, isLoading, error };
 // }
 
-export const placeOrder = ()=>{
+export const usePlaceOrder = ()=>{
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);

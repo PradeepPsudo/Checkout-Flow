@@ -4,7 +4,7 @@ import styles from "../../styles/index.module.css";
 import { Button } from "@mui/material";
 import { useProductCheckoutContext } from "../../Context/ProductsContext";
 import { ADRRESS_VIEW_TYPE } from "../../constants";
-import { updateCheckoutAddressDetails } from '../../common/customhooks/useGetProducts';
+import { useUpdateCheckoutAddressDetails } from '../../common/customhooks/useGetProducts';
 import { API_ENDPOINTS } from '../../constants/apiConstants';
 import { ClipLoader } from 'react-spinners';
 const { Option } = Select;
@@ -13,7 +13,7 @@ export default function RenderBillingAddress(props) {
     const [form] = Form.useForm();
     const { addressContext, setAddressContext, setCurrentAddressId, setAddressList, addressList ,selectedProducts} = useProductCheckoutContext();
     const [country, setCountry] = useState(addressContext?.country || ''); // Initialize with the current country
-    const {updateAddressDetails} = updateCheckoutAddressDetails();
+    const {updateAddressDetails} = useUpdateCheckoutAddressDetails();
     const [spinner,setSpinner] = useState(false);
     useEffect(() => {
         if (viewName === ADRRESS_VIEW_TYPE.LIST_VIEW) {

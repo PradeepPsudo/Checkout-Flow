@@ -9,7 +9,7 @@ import CartPage from './CheckoutPage/index.js';
 import CustomizedDialogs from './PaymentDialog/index.js';
 import OrderSummary from './OrderSummary/index.js';
 import { API_ENDPOINTS } from '../constants/apiConstants.js';
-import { addToCart } from '../common/customhooks/useGetProducts.js';
+import { useAddToCart } from '../common/customhooks/useGetProducts.js';
 import { ClipLoader } from 'react-spinners';
 
 function getSteps() {
@@ -88,7 +88,7 @@ export default function StepFlow(props) {
   const { selectedProducts } = useProductCheckoutContext();
   const [launchDialog, setLaunchDialog] = useState(false);
   const { ProductList, classifiedProductsList } = props;
-  const { addProductToCart, data, error } = addToCart();
+  const { addProductToCart, data, error } = useAddToCart();
   const [spinner, setSpinner] = useState(false);
   const handleNext = () => {
     if (activeStep === 2 && !launchDialog) {

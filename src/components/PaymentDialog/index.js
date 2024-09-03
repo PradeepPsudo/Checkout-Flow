@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import PaymentForm from "../Creditcard/index";
 import { useProductCheckoutContext } from '../../Context/ProductsContext';
-import { placeOrder } from "../../common/customhooks/useGetProducts";
+import { usePlaceOrder } from "../../common/customhooks/useGetProducts";
 import { API_ENDPOINTS } from '../../constants/apiConstants';
 import { ClipLoader } from 'react-spinners';
 
@@ -26,7 +26,7 @@ export default function CustomizedDialogs(props) {
     const {handleNext,setLaunchDialog} = props;
   const [open, setOpen] = useState(true);
   const {setPaymentMethod,selectedProducts,addressContext,paymentMethod} = useProductCheckoutContext();
-const {callPlaceOrder} = placeOrder();
+const {callPlaceOrder} = usePlaceOrder();
     const [disablePlaceOrder,setDisabledPlaceOrder] = useState(true);
     const [spinner,setSpinner] = useState(false);
   const handleClose = () => {
