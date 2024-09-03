@@ -9,6 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import PaymentForm from "../Creditcard/index";
 import { useProductCheckoutContext } from '../../Context/ProductsContext';
+import { placeOrder } from "../../common/customhooks/useGetProducts";
+import { API_ENDPOINTS } from '../../constants/apiConstants';
+import { ClipLoader } from 'react-spinners';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -22,9 +25,10 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 export default function CustomizedDialogs(props) {
     const {handleNext,setLaunchDialog} = props;
   const [open, setOpen] = useState(true);
-  const {setPaymentMethod} = useProductCheckoutContext();
-
+  const {setPaymentMethod,selectedProducts,addressContext,paymentMethod} = useProductCheckoutContext();
+const {callPlaceOrder} = placeOrder();
     const [disablePlaceOrder,setDisabledPlaceOrder] = useState(true);
+    const [spinner,setSpinner] = useState(false);
   const handleClose = () => {
     setOpen(false);
     setLaunchDialog(false);
@@ -34,8 +38,20 @@ export default function CustomizedDialogs(props) {
   }
 
   const handlePlaceOrder = ()=>{
+    const payload={
+      products:selectedProducts,
+      addressDetails:addressContext,
+      paymentMethod:paymentMethod
+    }
+    callPlaceOrder(API_ENDPOINTS.PLACE_ORDER,payload,setSpinner)
     handleNext();
     setOpen(false);
+  }
+
+  if (spinner) {
+    return (<div className="spinner">
+            <ClipLoader color={"#123abc"} loading={spinner} size={50} />
+      </div>)
   }
 
   return (

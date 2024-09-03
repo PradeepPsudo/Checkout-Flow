@@ -38,10 +38,10 @@ function AddressPage(){
                 items={[
                 
                 {
-                    title: <div  onClick={goToSelectAddress}>Select Address</div>,
+                    title: <div  onClick={goToSelectAddress} style={{color:(viewName===ADRRESS_VIEW_TYPE.SHOW_NEW ? 'grey': '#2196f3')}}>Select Address</div>,
                 },
                 {
-                    title: <div onClick={goToNewAddress}>Add New Address</div>,
+                    title: <div onClick={goToNewAddress} style={{color:(viewName===ADRRESS_VIEW_TYPE.LIST_VIEW ? 'grey': '#2196f3')}}>Add New Address</div>,
                 },
                 ]}
             />

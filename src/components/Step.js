@@ -8,6 +8,9 @@ import AddressPage from './BillingAddress/index.js';
 import CartPage from './CheckoutPage/index.js';
 import CustomizedDialogs from './PaymentDialog/index.js';
 import OrderSummary from './OrderSummary/index.js';
+import { API_ENDPOINTS } from '../constants/apiConstants.js';
+import { addToCart } from '../common/customhooks/useGetProducts.js';
+import { ClipLoader } from 'react-spinners';
 
 function getSteps() {
   return ['Select Products', 'Provide Billing Address', 'Place order'];
@@ -84,16 +87,25 @@ export default function StepFlow(props) {
   const classes = useStyles();
   const { selectedProducts } = useProductCheckoutContext();
   const [launchDialog, setLaunchDialog] = useState(false);
-
   const { ProductList, classifiedProductsList } = props;
+  const { addProductToCart, data, error } = addToCart();
+  const [spinner, setSpinner] = useState(false);
   const handleNext = () => {
-    // setActiveStep((prevActiveStep) => prevActiveStep + 1);
     if (activeStep === 2 && !launchDialog) {
       setLaunchDialog(true);
+    }else if (activeStep === 0) {
+      addProductToCart(API_ENDPOINTS.ADD_TO_CART, { products: selectedProducts }, setSpinner);
+      if (data && !error) {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      } else if (error) {
+        throw error;
+      }
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
   };
+
+
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -120,10 +132,16 @@ export default function StepFlow(props) {
     }
   }
   const buttonText = activeStep === 2 ? 'Proceed to checkout' : 'Next';
+
+  if (spinner) {
+    return (<div className="spinner">
+      <ClipLoader color={"#123abc"} loading={spinner} size={50} />
+    </div>)
+  }
   return (
     <ThemeProvider theme={theme}>
       <div>
-        <Stepper size="lg" sx={{ width: '100%'}} style={{marginTop:'10px'}} alternativeLabel orientation='horizontal' activeStep={activeStep} connector={<StepConnector classes={{ line: classes.connectorLine, active: classes.connectorActive, completed: classes.connectorCompleted }} />}>
+        <Stepper size="lg" sx={{ width: '100%' }} style={{ marginTop: '10px' }} alternativeLabel orientation='horizontal' activeStep={activeStep} connector={<StepConnector classes={{ line: classes.connectorLine, active: classes.connectorActive, completed: classes.connectorCompleted }} />}>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel classes={{ label: classes.step_label_root }}>{label}</StepLabel>

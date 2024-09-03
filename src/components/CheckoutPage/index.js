@@ -13,7 +13,6 @@ function CartPage(){
     const {selectedProducts,productQuantity,addressContext} = useProductCheckoutContext();
     const caluculatedTotal = calculateBillingAmount(selectedProducts,productQuantity);
     const {totalAmount,totalDiscount,currency} = caluculatedTotal;
-
         return(
             <div style={{width:'69%'}}>
                 <div className="order-table-wrapper">
